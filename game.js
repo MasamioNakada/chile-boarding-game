@@ -79,11 +79,11 @@ function generateFlightData() {
 
     // Set expected Keypad Code based on Manual Rules
     if (randomGateLetter === 'A' || randomGateLetter === 'B') {
-        expectedCode = '1810';
+        expectedCode = '1960';
     } else if (randomGateLetter === 'C') {
-        expectedCode = '1962';
+        expectedCode = '4300';
     } else if (randomGateLetter === 'D') {
-        expectedCode = '2024';
+        expectedCode = '1971';
     }
 }
 
@@ -296,7 +296,7 @@ function winGame() {
     screen.classList.remove('hidden');
     title.innerText = "¡PASAJES IMPRESOS!";
     title.classList.add('win-title');
-    msg.innerText = "¡Buen viaje a ....! ✈️";
+    msg.innerText = "¡PREPÁRENSE PARA VIAJAR A CHILE! 🇨🇱✈️";
 }
 
 // Start
