@@ -22,15 +22,16 @@ body {
     color: var(--term-text);
     font-family: 'Share Tech Mono', monospace;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     text-align: center;
 }
 
 .home-container {
     max-width: 800px;
     padding: 20px;
+    margin: auto;
 }
 
 .home-container h1 {
@@ -142,15 +143,16 @@ body {
     color: var(--term-text);
     font-family: 'Share Tech Mono', monospace;
     padding: 20px;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .terminal-container {
     width: 100%;
     max-width: 900px;
+    margin: auto;
     background-color: #000;
     border: 4px solid #30363d;
     border-radius: 10px;
@@ -349,4 +351,67 @@ body {
 
 .win-title {
     color: var(--term-green) !important;
+}
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .role-selection {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .home-container h1 {
+        font-size: 2rem;
+    }
+    
+    .header-info {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .info-block {
+        flex: 1 1 40%;
+    }
+
+    .digital-text {
+        font-size: 1.5rem;
+    }
+
+    .timer {
+        font-size: 1.8rem;
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .terminal-container {
+        padding: 15px;
+        border-width: 2px;
+    }
+
+    .symbol-btn {
+        font-size: 2rem;
+        padding: 10px;
+    }
+
+    .keypad-display {
+        font-size: 2rem;
+    }
+
+    .keypad-btn {
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+
+    #game-over-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    #game-over-msg {
+        text-align: center;
+        padding: 0 20px;
+    }
 }
