@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal de Abordaje</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="terminal-body">
+    <div id="game-over-screen" class="hidden">
+        <h1 id="game-over-title">SISTEMA BLOQUEADO</h1>
+        <p id="game-over-msg">Has fallado. Perdiste el vuelo a Chile.</p>
+        <button onclick="location.reload()" class="btn">Reintentar</button>
+    </div>
+
+    <div class="terminal-container">
+        <div class="header-info">
+            <div class="info-block">
+                <span>TIEMPO:</span>
+                <span id="timer" class="digital-text timer">04:00</span>
+            </div>
+            <div class="info-block">
+                <span>FLIGHT NO:</span>
+                <span id="flight-number" class="digital-text">LA-000</span>
+            </div>
+            <div class="info-block">
+                <span>GATE:</span>
+                <span id="gate-number" class="digital-text">XX</span>
+            </div>
+            <div class="info-block error-block">
+                <span>ERRORES:</span>
+                <span id="strikes" class="digital-text strikes">0 / 3</span>
+            </div>
+        </div>
+
+        <div class="modules-grid">
+            <!-- Modulo 1: Cables -->
+            <div class="module-box" id="module-wires">
+                <div class="module-status" id="status-wires">🔴</div>
+                <h3>1. OVERRIDE ENERGÍA</h3>
+                <div class="wires-container" id="wires-container">
+                    <!-- Wires injected by JS -->
+                </div>
+            </div>
+
+            <!-- Modulo 2: Simbolos -->
+            <div class="module-box" id="module-symbols">
+                <div class="module-status" id="status-symbols">🔴</div>
+                <h3>2. SECUENCIA CULTURAL</h3>
+                <div class="symbols-container" id="symbols-container">
+                    <!-- Symbols injected by JS -->
+                </div>
+            </div>
+
+            <!-- Modulo 3: Codigo -->
+            <div class="module-box" id="module-keypad">
+                <div class="module-status" id="status-keypad">🔴</div>
+                <h3>3. PIN DE ABORDAJE</h3>
+                <div class="keypad-display" id="keypad-display">----</div>
+                <div class="keypad-grid">
+                    <button class="keypad-btn" onclick="pressKey('1')">1</button>
+                    <button class="keypad-btn" onclick="pressKey('2')">2</button>
+                    <button class="keypad-btn" onclick="pressKey('3')">3</button>
+                    <button class="keypad-btn" onclick="pressKey('4')">4</button>
+                    <button class="keypad-btn" onclick="pressKey('5')">5</button>
+                    <button class="keypad-btn" onclick="pressKey('6')">6</button>
+                    <button class="keypad-btn" onclick="pressKey('7')">7</button>
+                    <button class="keypad-btn" onclick="pressKey('8')">8</button>
+                    <button class="keypad-btn" onclick="pressKey('9')">9</button>
+                    <button class="keypad-btn" onclick="pressKey('C')">C</button>
+                    <button class="keypad-btn" onclick="pressKey('0')">0</button>
+                    <button class="keypad-btn btn-enter" onclick="submitCode()">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
