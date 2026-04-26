@@ -296,7 +296,7 @@ function winGame() {
     screen.classList.remove('hidden');
     title.innerText = "¡PASAJES IMPRESOS!";
     title.classList.add('win-title');
-    msg.innerText = "¡Buen viaje a Chile! 🇨🇱✈️";
+    msg.innerText = "¡Buen viaje a ....! ✈️";
 }
 
 // Start
