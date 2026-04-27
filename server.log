@@ -1,0 +1,11 @@
+::1 - - [26/Apr/2026 18:51:50] "GET / HTTP/1.1" 304 -
+::1 - - [26/Apr/2026 18:51:50] "GET /style.css HTTP/1.1" 304 -
+::1 - - [26/Apr/2026 18:51:55] "GET /terminal.html HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:51:55] "GET /game.js HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:51:59] "GET /manual.html HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:57:44] "GET / HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:57:44] "GET /style.css HTTP/1.1" 304 -
+::1 - - [26/Apr/2026 18:57:52] "GET /manual.html HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:58:01] "GET /terminal.html HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:58:01] "GET /game.js HTTP/1.1" 200 -
+::1 - - [26/Apr/2026 18:58:01] "GET /game.js HTTP/1.1" 200 -

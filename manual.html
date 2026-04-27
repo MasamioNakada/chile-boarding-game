@@ -3,60 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual de Aerolínea - Alto Secreto</title>
+    <title>Manual de Seguridad - Bóveda</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional visual styles for the graphical manual */
+        .visual-rule {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-shadow: 2px 2px 0px #ccc;
+        }
+        .visual-rule:last-child {
+            margin-bottom: 0;
+        }
+        .rule-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #555;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        .rule-condition {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .rule-action {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: #eef;
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: 2px dashed #88b;
+        }
+        .color-box {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #000;
+            border-radius: 4px;
+        }
+        .color-red { background-color: #f85149; }
+        .color-green { background-color: #3fb950; }
+        .color-white { background-color: #f0f6fc; }
+        .color-yellow { background-color: #e3b341; }
+        .color-blue { background-color: #58a6ff; }
+        
+        .arrow {
+            font-size: 1.5rem;
+            margin: 0 15px;
+            color: #888;
+        }
+        
+        .cut-icon {
+            font-size: 1.5rem;
+        }
+
+        .seq-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 10px 20px;
+        }
+        
+        .seq-cond {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        
+        .seq-symbols {
+            display: flex;
+            gap: 15px;
+            font-size: 2rem;
+        }
+
+        .code-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .code-card {
+            background: #fff;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 2px 2px 0px #ccc;
+        }
+        .code-gate {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d32f2f;
+            margin-bottom: 10px;
+        }
+        .code-pin {
+            font-size: 1.8rem;
+            background: #222;
+            color: #0f0;
+            padding: 5px;
+            border-radius: 4px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+    </style>
 </head>
 <body class="manual-body">
     <div class="manual-container">
         <header>
-            <h1>MANUAL DE EMERGENCIA: SISTEMA DE ABORDAJE</h1>
-            <p><strong>VERSIÓN 2.4 - VUELOS A DESTINO CLASIFICADO</strong></p>
-            <p>Instrucciones exclusivas para el operador de soporte. Lea atentamente al pasajero.</p>
+            <h1>GUÍA VISUAL DE SEGURIDAD</h1>
+            <p><strong>SISTEMA DE DEFENSA DE BÓVEDA</strong></p>
+            <p>Sigue el orden estricto de arriba hacia abajo. Aplica la primera regla que coincida.</p>
         </header>
 
         <section class="module">
-            <h2>MÓDULO 1: INTERFAZ DE CABLES</h2>
-            <p>El pasajero verá 4 cables de distintos colores. Debe cortar solo UNO siguiendo estas reglas en orden estricto. (Aplique la primera regla que se cumpla):</p>
-            <ol>
-                <li>Si hay exactamente <strong>un cable ROJO</strong> y <strong>un cable VERDE</strong>, corte el <strong>cable VERDE</strong>.</li>
-                <li>De lo contrario, si el <strong>último cable es BLANCO</strong>, corte el <strong>cable BLANCO</strong>.</li>
-                <li>De lo contrario, si hay <strong>algún cable AMARILLO</strong>, corte el <strong>PRIMER cable</strong>.</li>
-                <li>De lo contrario, corte el <strong>cable AZUL</strong>.</li>
-            </ol>
+            <h2>MÓDULO 1: CABLES</h2>
+            
+            <div class="visual-rule">
+                <div class="rule-number">1</div>
+                <div class="rule-condition">
+                    1x <span class="color-box color-red"></span> + 1x <span class="color-box color-green"></span>
+                </div>
+                <div class="arrow">➔</div>
+                <div class="rule-action">
+                    <span class="cut-icon">✂️</span> <span class="color-box color-green"></span>
+                </div>
+            </div>
+
+            <div class="visual-rule">
+                <div class="rule-number">2</div>
+                <div class="rule-condition">
+                    Último = <span class="color-box color-white"></span>
+                </div>
+                <div class="arrow">➔</div>
+                <div class="rule-action">
+                    <span class="cut-icon">✂️</span> <span class="color-box color-white"></span>
+                </div>
+            </div>
+
+            <div class="visual-rule">
+                <div class="rule-number">3</div>
+                <div class="rule-condition">
+                    Existe <span class="color-box color-yellow"></span>
+                </div>
+                <div class="arrow">➔</div>
+                <div class="rule-action">
+                    <span class="cut-icon">✂️</span> 1º CABLE
+                </div>
+            </div>
+
+            <div class="visual-rule">
+                <div class="rule-number">4</div>
+                <div class="rule-condition">
+                    OTRO CASO
+                </div>
+                <div class="arrow">➔</div>
+                <div class="rule-action">
+                    <span class="cut-icon">✂️</span> <span class="color-box color-blue"></span>
+                </div>
+            </div>
         </section>
 
         <section class="module">
-            <h2>MÓDULO 2: AUTENTICACIÓN POR SÍMBOLOS</h2>
-            <p>El pasajero verá un panel con 4 botones con símbolos: 🍷 (Vino), 🏔️ (Andes), 🦅 (Cóndor) y 🗿 (Moai).</p>
-            <p>El orden en que deben ser presionados depende del <strong>Número de Vuelo (Flight No.)</strong> que aparece en la pantalla del pasajero.</p>
-            <table class="manual-table">
-                <tr>
-                    <th>Condición del Vuelo</th>
-                    <th>Orden de Botones a Presionar</th>
-                </tr>
-                <tr>
-                    <td>El Número de Vuelo termina en un <strong>dígito PAR</strong> (ej: 0, 2, 4, 6, 8)</td>
-                    <td>1º 🍷 (Vino) <br> 2º 🏔️ (Andes) <br> 3º 🦅 (Cóndor) <br> 4º 🗿 (Moai)</td>
-                </tr>
-                <tr>
-                    <td>El Número de Vuelo termina en un <strong>dígito IMPAR</strong> (ej: 1, 3, 5, 7, 9)</td>
-                    <td>1º 🗿 (Moai) <br> 2º 🦅 (Cóndor) <br> 3º 🍷 (Vino) <br> 4º 🏔️ (Andes)</td>
-                </tr>
-            </table>
+            <h2>MÓDULO 2: SÍMBOLOS</h2>
+            <p>Basado en el último dígito del <strong>ID ACCESO</strong>:</p>
+            
+            <div class="seq-row">
+                <div class="seq-cond">Termina en PAR (0,2,4,6,8)</div>
+                <div class="arrow">➔</div>
+                <div class="seq-symbols">
+                    <span>1º🔥</span> <span>2º💧</span> <span>3º⚡</span> <span>4º🧊</span>
+                </div>
+            </div>
+
+            <div class="seq-row">
+                <div class="seq-cond">Termina en IMPAR (1,3,5,7,9)</div>
+                <div class="arrow">➔</div>
+                <div class="seq-symbols">
+                    <span>1º🧊</span> <span>2º⚡</span> <span>3º🔥</span> <span>4º💧</span>
+                </div>
+            </div>
         </section>
 
         <section class="module">
-            <h2>MÓDULO 3: CÓDIGO FINAL DE IMPRESIÓN</h2>
-            <p>El pasajero verá un teclado numérico. Debe ingresar un código de 4 dígitos basado en la <strong>Puerta de Embarque (Gate)</strong> que aparece en su pantalla.</p>
-            <ul>
-                <li>Si la puerta empieza con la letra <strong>A</strong> o <strong>B</strong>:<br> Ingrese el año del gran terremoto más fuerte registrado en la historia: <strong>1960</strong>.</li>
-                <li>Si la puerta empieza con la letra <strong>C</strong>:<br> Ingrese la longitud aproximada (en km) del país más largo y angosto del mundo (redondeado a la centena): <strong>4300</strong>.</li>
-                <li>Si la puerta empieza con la letra <strong>D</strong>:<br> Ingrese el año en que un poeta de dicho país ganó el Premio Nobel de Literatura (Pablo Neruda): <strong>1971</strong>.</li>
-            </ul>
+            <h2>MÓDULO 3: PIN</h2>
+            <p>Busca la letra del <strong>SECTOR</strong>:</p>
+            
+            <div class="code-grid">
+                <div class="code-card">
+                    <div class="code-gate">Sector A / B</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Llegada a la Luna</div>
+                    <div class="code-pin">1969</div>
+                </div>
+                <div class="code-card">
+                    <div class="code-gate">Sector C</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Altura Mt. Everest (m)</div>
+                    <div class="code-pin">8848</div>
+                </div>
+                <div class="code-card">
+                    <div class="code-gate">Sector D</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">Días en año bisiesto</div>
+                    <div class="code-pin">0366</div>
+                </div>
+            </div>
         </section>
         
-        <footer>
-            <p>PROPIEDAD DE AEROLÍNEAS CONDOR. NO COMPARTIR.</p>
+        <footer style="text-align: center; margin-top: 30px; border-top: 2px solid #000; padding-top: 10px;">
+            <p>PROPIEDAD DE EMPRESAS APEX. NO COMPARTIR.</p>
         </footer>
     </div>
 </body>

@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal de Abordaje</title>
+    <title>Terminal de Bóveda</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="terminal-body">
     <div id="game-over-screen" class="hidden">
-        <h1 id="game-over-title">SISTEMA BLOQUEADO</h1>
-        <p id="game-over-msg">Has fallado. Perdiste el vuelo a ....</p>
+        <h1 id="game-over-title">ALARMA ACTIVADA</h1>
+        <p id="game-over-msg">Has fallado. La bóveda se ha sellado para siempre.</p>
         <button onclick="location.reload()" class="btn">Reintentar</button>
     </div>
 
@@ -20,12 +20,12 @@
                 <span id="timer" class="digital-text timer">04:00</span>
             </div>
             <div class="info-block">
-                <span>FLIGHT NO:</span>
-                <span id="flight-number" class="digital-text">LA-000</span>
+                <span>ID ACCESO:</span>
+                <span id="access-id" class="digital-text">ID-000</span>
             </div>
             <div class="info-block">
-                <span>GATE:</span>
-                <span id="gate-number" class="digital-text">XX</span>
+                <span>SECTOR:</span>
+                <span id="sector-id" class="digital-text">XX</span>
             </div>
             <div class="info-block error-block">
                 <span>ERRORES:</span>
@@ -37,7 +37,7 @@
             <!-- Modulo 1: Cables -->
             <div class="module-box" id="module-wires">
                 <div class="module-status" id="status-wires">🔴</div>
-                <h3>1. OVERRIDE ENERGÍA</h3>
+                <h3>1. PUENTE DE ENERGÍA</h3>
                 <div class="wires-container" id="wires-container">
                     <!-- Wires injected by JS -->
                 </div>
@@ -46,7 +46,7 @@
             <!-- Modulo 2: Simbolos -->
             <div class="module-box" id="module-symbols">
                 <div class="module-status" id="status-symbols">🔴</div>
-                <h3>2. SECUENCIA CULTURAL</h3>
+                <h3>2. SECUENCIA DE SEGURIDAD</h3>
                 <div class="symbols-container" id="symbols-container">
                     <!-- Symbols injected by JS -->
                 </div>
@@ -55,7 +55,7 @@
             <!-- Modulo 3: Codigo -->
             <div class="module-box" id="module-keypad">
                 <div class="module-status" id="status-keypad">🔴</div>
-                <h3>3. PIN DE ABORDAJE</h3>
+                <h3>3. PIN DE EXTRACCIÓN</h3>
                 <div class="keypad-display" id="keypad-display">----</div>
                 <div class="keypad-grid">
                     <button class="keypad-btn" onclick="pressKey('1')">1</button>

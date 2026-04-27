@@ -27,8 +27,8 @@ let currentWires = [];
 let correctWireIndex = -1;
 
 // Symbols Module
-const symbolsPool = ['🍷', '🏔️', '🦅', '🗿'];
-let flightNumber = '';
+const symbolsPool = ['🔥', '💧', '⚡', '🧊'];
+let accessId = '';
 let currentSymbols = [];
 let expectedSymbolSequence = [];
 let currentSymbolProgress = 0;
@@ -65,25 +65,25 @@ function initGame() {
 }
 
 function generateFlightData() {
-    // Random Flight Number (LA-XXX)
-    const flightDigits = Math.floor(Math.random() * 900) + 100;
-    flightNumber = `LA-${flightDigits}`;
-    document.getElementById('flight-number').innerText = flightNumber;
+    // Random ID (ID-XXX)
+    const accessDigits = Math.floor(Math.random() * 900) + 100;
+    accessId = `ID-${accessDigits}`;
+    document.getElementById('access-id').innerText = accessId;
 
-    // Random Gate (A, B, C, D) + (1-9)
+    // Random Sector (A, B, C, D) + (1-9)
     const gates = ['A', 'B', 'C', 'D'];
     const randomGateLetter = gates[Math.floor(Math.random() * gates.length)];
     const randomGateNum = Math.floor(Math.random() * 9) + 1;
     currentGate = `${randomGateLetter}${randomGateNum}`;
-    document.getElementById('gate-number').innerText = currentGate;
+    document.getElementById('sector-id').innerText = currentGate;
 
     // Set expected Keypad Code based on Manual Rules
     if (randomGateLetter === 'A' || randomGateLetter === 'B') {
-        expectedCode = '1960';
+        expectedCode = '1969';
     } else if (randomGateLetter === 'C') {
-        expectedCode = '4300';
+        expectedCode = '8848';
     } else if (randomGateLetter === 'D') {
-        expectedCode = '1971';
+        expectedCode = '0366';
     }
 }
 
@@ -124,7 +124,7 @@ function determineCorrectWire() {
     }
     // Rule 4: Otherwise -> Cut Blue
     else {
-        // If there's no blue (rare since we only have 5 colors and pick 4), we just fallback to last
+        // If there's no blue, fallback to last
         const blueIdx = currentWires.findIndex(w => w.id === 'blue');
         correctWireIndex = blueIdx !== -1 ? blueIdx : 3; 
     }
@@ -161,11 +161,11 @@ function generateSymbols() {
     });
 
     // Determine expected sequence based on Manual Rule
-    const lastDigit = parseInt(flightNumber.slice(-1));
+    const lastDigit = parseInt(accessId.slice(-1));
     if (lastDigit % 2 === 0) { // EVEN
-        expectedSymbolSequence = ['🍷', '🏔️', '🦅', '🗿'];
+        expectedSymbolSequence = ['🔥', '💧', '⚡', '🧊'];
     } else { // ODD
-        expectedSymbolSequence = ['🗿', '🦅', '🍷', '🏔️'];
+        expectedSymbolSequence = ['🧊', '⚡', '🔥', '💧'];
     }
 }
 
@@ -222,7 +222,7 @@ window.submitCode = function() {
 function updateKeypadDisplay() {
     const display = document.getElementById('keypad-display');
     if (modules.keypad.solved) {
-        display.innerText = 'PASS';
+        display.innerText = 'BIEN';
         display.style.color = 'var(--term-green)';
     } else {
         display.innerText = currentInput.padEnd(4, '-');
@@ -282,7 +282,7 @@ function loseGame(reason) {
     const msg = document.getElementById('game-over-msg');
     
     screen.classList.remove('hidden');
-    msg.innerText = `${reason} Perdiste el vuelo.`;
+    msg.innerText = `${reason} Bóveda sellada permanentemente.`;
 }
 
 function winGame() {
@@ -294,9 +294,17 @@ function winGame() {
     const msg = document.getElementById('game-over-msg');
     
     screen.classList.remove('hidden');
-    title.innerText = "¡PASAJES IMPRESOS!";
+    
+    // THE SURPRISE TWIST
+    title.innerText = "¡BÓVEDA ABIERTA!";
     title.classList.add('win-title');
-    msg.innerText = "¡PREPÁRENSE PARA VIAJAR A CHILE! 🇨🇱✈️";
+    msg.innerText = "Desbloqueando y extrayendo el contenido...";
+    
+    // Revelar el premio después de unos segundos de "extracción"
+    setTimeout(() => {
+        title.innerText = "¡SORPRESA!";
+        msg.innerHTML = "¡LA VERDADERA RECOMPENSA SON UNOS<br><strong style='font-size:1.5rem; color:var(--term-green);'>PASAJES A CHILE!</strong> 🇨🇱✈️<br>¡Preparen sus maletas!";
+    }, 3500);
 }
 
 // Start
